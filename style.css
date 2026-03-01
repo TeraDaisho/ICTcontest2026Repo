@@ -1,0 +1,713 @@
+/* 
+* Daisho ICT Contest 2026 Report
+* Aesthetic: Colorful, Brutalist, Pop-Art (Vibrant intersecting stripes, solid shadows)
+*/
+
+:root {
+    --bg-base: #f0f0f0;
+    --bg-surface: #ffffff;
+    --text-primary: #111111;
+    --text-secondary: #000000;
+    --text-tertiary: #ffffff;
+
+    /* Very Vivid Pop Colors based on the image */
+    --color-red: #E60012;
+    --color-blue: #0055ff;
+    --color-cyan: #00e5ff;
+    --color-yellow: #FFd500;
+    --color-green: #00d33b;
+    --color-magenta: #FF007F;
+    --color-purple: #9d00ff;
+
+    --font-display: 'Plus Jakarta Sans', 'Noto Sans JP', sans-serif;
+    --font-body: 'Noto Sans JP', sans-serif;
+
+    --border-radius: 0px;
+    --border-hard: 3px solid #111;
+    --shadow-hard: 8px 8px 0px #111;
+    --shadow-hover: 16px 16px 0px #111;
+    --transition-smooth: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-base);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Background Effects - Pop Art Stripes */
+.ambient-background {
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    width: 200vw;
+    height: 200vh;
+    z-index: -1;
+    background-color: var(--bg-base);
+    /* Intersecting vivid stripes background */
+    background-image:
+        linear-gradient(65deg, transparent 35%, var(--color-yellow) 35%, var(--color-yellow) 42%, transparent 42%),
+        linear-gradient(-35deg, transparent 25%, var(--color-cyan) 25%, var(--color-cyan) 38%, transparent 38%),
+        linear-gradient(75deg, transparent 55%, var(--color-red) 55%, var(--color-red) 65%, transparent 65%),
+        linear-gradient(-15deg, transparent 60%, var(--color-green) 60%, var(--color-green) 75%, transparent 75%),
+        linear-gradient(40deg, transparent 15%, var(--color-magenta) 15%, var(--color-magenta) 28%, transparent 28%),
+        linear-gradient(10deg, transparent 75%, var(--color-blue) 75%, var(--color-blue) 85%, transparent 85%);
+    background-size: 1500px 1500px;
+    background-attachment: fixed;
+    opacity: 0.15;
+    /* Subdued across the whole page to keep readability */
+}
+
+/* Hide soft organic elements */
+#splatterCanvas {
+    opacity: 0.5;
+}
+
+.glow-orb {
+    display: none;
+}
+
+.noise-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    opacity: 0.04;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Layout Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 5%;
+}
+
+/* Hero Section */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    padding-top: 100px;
+    column-gap: 2rem;
+}
+
+/* Intense colored stripes strictly behind the hero section */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    z-index: -1;
+    background-color: var(--bg-base);
+    background-image:
+        linear-gradient(65deg, transparent 35%, var(--color-yellow) 35%, var(--color-yellow) 42%, transparent 42%),
+        linear-gradient(-35deg, transparent 25%, var(--color-cyan) 25%, var(--color-cyan) 38%, transparent 38%),
+        linear-gradient(75deg, transparent 55%, var(--color-red) 55%, var(--color-red) 65%, transparent 65%),
+        linear-gradient(-15deg, transparent 60%, var(--color-green) 60%, var(--color-green) 75%, transparent 75%),
+        linear-gradient(40deg, transparent 15%, var(--color-magenta) 15%, var(--color-magenta) 28%, transparent 28%),
+        linear-gradient(10deg, transparent 75%, var(--color-blue) 75%, var(--color-blue) 85%, transparent 85%);
+    background-size: 1500px 1500px;
+    background-position: center;
+    box-shadow: inset 0 0 150px var(--bg-surface);
+    /* fade edges into body */
+}
+
+.hero-minititle {
+    font-family: var(--font-display);
+    font-weight: 900;
+    letter-spacing: 0.1em;
+    background: #111;
+    color: white;
+    padding: 5px 20px;
+    text-transform: uppercase;
+    font-size: 1rem;
+    display: inline-block;
+    margin-bottom: 2rem;
+    transform: skew(-10deg);
+}
+
+.hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 11vw, 8rem);
+    font-weight: 900;
+    font-style: italic;
+    line-height: 0.95;
+    margin-bottom: 2rem;
+    color: white;
+    text-shadow:
+        4px 4px 0px #111,
+        8px 8px 0px #111,
+        12px 12px 0px #111;
+    letter-spacing: -0.04em;
+    display: inline-block;
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    color: #111;
+    background: white;
+    border: var(--border-hard);
+    box-shadow: 6px 6px 0px #111;
+    padding: 1.5rem 2rem;
+    max-width: 650px;
+    font-weight: 800;
+    margin-bottom: 3rem;
+    line-height: 1.8;
+}
+
+.date-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: var(--color-yellow);
+    border: var(--border-hard);
+    box-shadow: 8px 8px 0px #111;
+    font-size: 1.2rem;
+    font-family: var(--font-display);
+    font-weight: 900;
+    letter-spacing: 0.1em;
+    color: #111;
+    transform: skew(-5deg);
+}
+
+/* Sections */
+section {
+    padding: 6rem 0;
+    position: relative;
+}
+
+.section-header {
+    margin-bottom: 4rem;
+    display: flex;
+    align-items: baseline;
+    gap: 1.5rem;
+    border-bottom: 5px solid #111;
+    padding-bottom: 1rem;
+}
+
+.section-title {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 900;
+    font-style: italic;
+    color: #111;
+    text-transform: uppercase;
+}
+
+.section-subtitle {
+    font-family: var(--font-display);
+    color: var(--color-red);
+    font-size: 2rem;
+    font-weight: 900;
+}
+
+/* Image Placeholders */
+.card-image-placeholder {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border: 3px solid #111;
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+}
+
+.card-image-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%) contrast(150%);
+    transition: var(--transition-smooth);
+}
+
+/* Cards Common */
+.intro-card,
+.speaker-card,
+.gp-card,
+.review-card,
+.results-podium,
+.podium-list li {
+    background: var(--bg-surface);
+    border: var(--border-hard);
+    box-shadow: var(--shadow-hard);
+    padding: 2.5rem;
+    transition: var(--transition-smooth);
+    position: relative;
+}
+
+.intro-card:hover,
+.speaker-card:hover,
+.gp-card:hover,
+.podium-list li:hover {
+    transform: translate(-6px, -6px);
+    box-shadow: var(--shadow-hover);
+}
+
+.intro-card:hover .card-image-placeholder img,
+.speaker-card:hover .card-image-placeholder img,
+.gp-card:hover .gp-image-container img {
+    filter: grayscale(0%) contrast(100%);
+    transform: scale(1.05);
+    /* Slight punch */
+}
+
+/* Intro Cards */
+.intro-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+}
+
+.intro-card h3 {
+    color: white;
+    background: #111;
+    display: inline-block;
+    padding: 5px 15px;
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+    font-family: var(--font-display);
+    font-weight: 900;
+    transform: skew(-5deg);
+}
+
+.intro-card p {
+    font-weight: 600;
+    font-size: 1.05rem;
+}
+
+/* Speaker Grid */
+.speaker-category {
+    margin-bottom: 6rem;
+}
+
+.category-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 3rem;
+}
+
+.category-header h3 {
+    font-size: 2.5rem;
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-style: italic;
+    background: #111;
+    color: white;
+    padding: 10px 25px;
+    text-transform: uppercase;
+}
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 3.5rem;
+}
+
+/* Colored borders for speakers */
+.speaker-card:nth-child(4n+1) {
+    border-top: 15px solid var(--color-red);
+}
+
+.speaker-card:nth-child(4n+2) {
+    border-top: 15px solid var(--color-blue);
+}
+
+.speaker-card:nth-child(4n+3) {
+    border-top: 15px solid var(--color-yellow);
+}
+
+.speaker-card:nth-child(4n+4) {
+    border-top: 15px solid var(--color-green);
+}
+
+.speaker-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+}
+
+.speaker-name {
+    font-size: 1.6rem;
+    font-weight: 900;
+    font-family: var(--font-display);
+    color: #111;
+}
+
+.speaker-number {
+    font-family: var(--font-display);
+    font-size: 4rem;
+    font-weight: 900;
+    font-style: italic;
+    color: transparent;
+    -webkit-text-stroke: 2px #111;
+    line-height: 1;
+    margin-top: -1rem;
+    transition: var(--transition-smooth);
+}
+
+.speaker-card:hover .speaker-number {
+    color: #111;
+    transform: scale(1.1) rotate(5deg);
+}
+
+.speaker-theme {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #111;
+    margin-bottom: 1.5rem;
+    background: #eee;
+    padding: 8px 15px;
+    border: 3px solid #111;
+    display: inline-block;
+}
+
+.speaker-desc {
+    color: #111;
+    font-size: 1rem;
+    font-weight: 600;
+    flex-grow: 1;
+}
+
+/* Grand Prix Special Layout - Prestigious Navy */
+.grand-prix-section {
+    background-color: #0B192C;
+    /* Deep Navy Blue */
+    color: #F8F9FA;
+    padding: 8rem 5%;
+    margin: 4rem -5%;
+    /* Break out of container to span full width */
+    border-top: 4px solid #D4AF37;
+    /* Gold accent border */
+    border-bottom: 4px solid #D4AF37;
+    position: relative;
+    box-shadow: inset 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.grand-prix-section .section-title {
+    color: #D4AF37 !important;
+    /* Gold Title */
+    text-shadow: 2px 2px 0px #000;
+}
+
+.grand-prix-section .section-subtitle {
+    color: #A0AEC0;
+}
+
+.grand-prix-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4rem;
+}
+
+.gp-card {
+    display: grid;
+    grid-template-columns: minmax(300px, 1fr) 1.5fr;
+    gap: 3rem;
+    align-items: center;
+    border-left: 20px solid #D4AF37;
+    /* Gold instead of magenta */
+    background: #1A2E44;
+    /* Slightly lighter navy for cards */
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 12px 12px 0px rgba(0, 0, 0, 0.4);
+    /* Darker shadow */
+    padding: 3rem;
+    transition: var(--transition-smooth);
+}
+
+.gp-image-container {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    border: 3px solid #D4AF37;
+    /* Gold border around image */
+    overflow: hidden;
+    box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.6);
+}
+
+.gp-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: sepia(30%) contrast(120%) brightness(90%);
+    /* Elegant slight vintage look */
+    transition: var(--transition-smooth);
+}
+
+.gp-card:hover .gp-image-container img {
+    filter: sepia(0%) contrast(110%) brightness(100%);
+    transform: scale(1.05);
+}
+
+.gp-content-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.gp-author {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 2px solid rgba(212, 175, 55, 0.3);
+    /* Soft gold separator */
+}
+
+.gp-author .gp-badge {
+    display: inline-block;
+    color: #0B192C;
+    background: #D4AF37;
+    /* Gold badge */
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: 1rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.5rem 1.5rem;
+    margin-bottom: 1.5rem;
+    transform: skew(-5deg);
+    border: none;
+}
+
+.gp-author h4 {
+    font-size: 3rem;
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-style: normal;
+    /* Remove italic for more formal look */
+    color: #FFFFFF;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.gp-author h4 span {
+    color: #CBD5E1;
+}
+
+.gp-content h5 {
+    font-size: 1.5rem;
+    color: #0B192C;
+    /* Navy text on gold background */
+    margin-bottom: 1.5rem;
+    font-family: var(--font-display);
+    font-weight: 900;
+    background: #D4AF37;
+    display: inline-block;
+    padding: 8px 18px;
+    border: none;
+    box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.3);
+}
+
+.gp-content p {
+    color: #E2E8F0;
+    /* Light text for readability */
+    font-size: 1.05rem;
+    line-height: 1.7;
+    font-weight: 400;
+    /* Normal weight for elegance */
+}
+
+/* Base card hover adjust for dark theme */
+.gp-card:hover {
+    transform: translate(-4px, -4px);
+    box-shadow: 16px 16px 0px rgba(0, 0, 0, 0.5);
+    background: #1E3650;
+}
+
+/* Review Section */
+.review-section {
+    position: relative;
+    padding: 6rem 0;
+}
+
+.review-card {
+    margin-bottom: 4rem;
+    padding: 3rem;
+    border-top: 15px solid var(--color-purple);
+}
+
+.review-author {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 900;
+    color: white;
+    background: #111;
+    display: inline-block;
+    padding: 5px 15px;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    transform: skew(-5deg);
+}
+
+.review-text {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: #111;
+    max-width: 800px;
+    line-height: 1.8;
+}
+
+.results-podium {
+    margin-top: 4rem;
+    background: #1A2E44;
+    border: 3px solid #D4AF37;
+    box-shadow: 12px 12px 0px rgba(0, 0, 0, 0.4);
+    position: relative;
+    padding: 4rem;
+}
+
+.results-podium h3 {
+    font-family: var(--font-display);
+    font-size: 3.5rem;
+    font-weight: 900;
+    font-style: normal;
+    margin-bottom: 4rem;
+    color: #ffffff;
+    text-align: center;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.podium-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.podium-list li {
+    display: flex;
+    align-items: center;
+    background: #0B192C;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    padding: 2rem 3rem;
+    gap: 3rem;
+    box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.3);
+    transition: var(--transition-smooth);
+}
+
+.podium-list li:hover {
+    transform: translate(-4px, -4px);
+    box-shadow: 10px 10px 0px rgba(0, 0, 0, 0.4);
+    background: #1E3650;
+}
+
+.podium-list .rank {
+    font-family: var(--font-display);
+    font-size: 4rem;
+    font-weight: 900;
+    font-style: italic;
+    min-width: 80px;
+}
+
+.podium-list li:nth-child(1) .rank {
+    color: #D4AF37;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.podium-list li:nth-child(2) .rank {
+    color: #E2E8F0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.podium-list li:nth-child(3) .rank {
+    color: #CD7F32;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.winner-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.winner-info .winner-name {
+    font-size: 1.8rem;
+    font-family: var(--font-display);
+    font-weight: 900;
+    color: #ffffff;
+}
+
+.winner-info .winner-theme {
+    font-size: 1.1rem;
+    color: #0B192C;
+    font-weight: 800;
+    margin-top: 0.8rem;
+    background: #D4AF37;
+    padding: 5px 15px;
+    border: none;
+    box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.3);
+    display: inline-block;
+}
+
+/* Scroll Animations */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.delay-1 {
+    transition-delay: 0.1s;
+}
+
+.delay-2 {
+    transition-delay: 0.2s;
+}
+
+.delay-3 {
+    transition-delay: 0.3s;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .gp-card {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 2rem;
+        border-left-width: 10px;
+    }
+
+    .hero-title {
+        font-size: clamp(3rem, 15vw, 5rem);
+        text-shadow: 3px 3px 0px #111, 6px 6px 0px #111;
+    }
+
+    .section-header {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .results-podium {
+        padding: 2rem;
+    }
+
+    .podium-list li {
+        padding: 1.5rem;
+        gap: 1.5rem;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

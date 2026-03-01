@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>大商学園ICT・生成AIコンテスト 2026 レポート</title>
+    <!-- Fonts: Noto Sans JP for natural Japanese text, Plus Jakarta Sans for clean English/Numbers -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Plus+Jakarta+Sans:wght@400;600;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Ambient Background Effects -->
+    <div class="ambient-background">
+        <canvas id="splatterCanvas"></canvas>
+    </div>
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
+    <div class="glow-orb orb-3"></div>
+    <div class="noise-overlay"></div>
+
+    <div class="container">
+        <!-- Hero Section -->
+        <header class="hero">
+            <div class="reveal">
+                <span class="hero-minititle">Event Report</span>
+            </div>
+            <div class="reveal delay-1">
+                <h1 class="hero-title">
+                    大商学園<br>ICT・生成AIコンテスト<br>2026
+                </h1>
+            </div>
+            <div class="reveal delay-2">
+                <p class="hero-subtitle">
+                    事前の応募から選ばれた教職員による、生成AIやICTを活用した取り組みの共有。結果だけでなく、失敗や試行錯誤の過程もオープンに共有し、「挑戦する姿勢」を称え合う場となりました。
+                </p>
+            </div>
+            <div class="reveal delay-3">
+                <div class="date-badge">2026.02.27 開催</div>
+            </div>
+        </header>
+
+        <!-- Greetings / Opening -->
+        <section class="opening-section">
+            <div class="section-header reveal">
+                <h2 class="section-title">Messages</h2>
+                <span class="section-subtitle">01</span>
+            </div>
+            <div class="intro-grid">
+                <div class="intro-card reveal delay-1">
+                    <div class="card-image-placeholder">
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=800&auto=format&fit=crop"
+                            alt="Dummy Photo" />
+                    </div>
+                    <h3>徳千代太一 先生<br><span
+                            style="font-size: 0.9rem; font-weight: 400; color: var(--text-secondary);">（ロイロ認定イノベーター）</span>
+                    </h3>
+                    <p>AI時代において、「問い続ける人」「学び続ける人（ラーナー）」であることの価値を強調。知識の習得だけでなく、常に新しい技術に触れ、挑戦し続ける学校法人の姿勢を高く評価しました。</p>
+                </div>
+                <div class="intro-card reveal delay-2">
+                    <div class="card-image-placeholder">
+                        <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=800&auto=format&fit=crop"
+                            alt="Dummy Photo" />
+                    </div>
+                    <h3>澁谷 さん<br><span
+                            style="font-size: 0.9rem; font-weight: 400; color: var(--text-secondary);">（株式会社LoiLo）</span>
+                    </h3>
+                    <p>全国の学校に対しても、大商学園での先進的な取り組みを発信していくことの意義を語りました。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Department Presentations -->
+        <section class="departments-section">
+            <div class="section-header reveal">
+                <h2 class="section-title">Departments</h2>
+                <span class="section-subtitle">02</span>
+            </div>
+
+            <!-- 1・2 Years -->
+            <div class="speaker-category">
+                <div class="category-header reveal">
+                    <h3>勤続1・2年部門</h3>
+                    <div class="category-line"></div>
+                </div>
+                <div class="cards-grid">
+                    <div class="speaker-card reveal delay-1">
+                        <div class="card-image-placeholder">
+                            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=800&auto=format&fit=crop"
+                                alt="Speech Photo" />
+                        </div>
+                        <div class="speaker-meta">
+                            <span class="speaker-name">白井 宏明 <span
+                                    style="font-size:0.9rem;font-weight:400">先生</span></span>
+                            <span class="speaker-number">01</span>
+                        </div>
+                        <h4 class="speaker-theme">ピチピチ・アナログ世代の挑戦</h4>
+                        <p class="speaker-desc">
+                            英文法の説明にGeminiで生成した視覚的なイラストを活用。スライドをロイロノートで配布し、欠席者向けにはAIを活用して解説動画も作成。小テストにゲーミフィケーション（チーム対抗のゲーム等）を取り入れ、生徒の学習意欲や定着率の向上に成功しました。
+                        </p>
+                    </div>
+
+                    <div class="speaker-card reveal delay-2">
+                        <div class="card-image-placeholder">
+                            <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=800&auto=format&fit=crop"
+                                alt="Speech Photo" />
+                        </div>
+                        <div class="speaker-meta">
+                            <span class="speaker-name">首藤 孟 <span
+                                    style="font-size:0.9rem;font-weight:400">先生</span></span>
+                            <span class="speaker-number">02</span>
+                        </div>
+                        <h4 class="speaker-theme">「振り返り」の蓄積で育む自己調整学習</h4>
+                        <p class="speaker-desc">
+                            『真の自立』の単元において、授業の最初と最後に目標や振り返りを記入する「学習計画表」を導入。「説明活動」を軸にし、教員からの一方的な伝達ではなく生徒同士の対話や教え合いを促進しました。結果として、生徒それぞれの記述の質・量ともに向上し、主体的な深い学びが実現しました。
+                        </p>
+                    </div>
+
+                    <div class="speaker-card reveal delay-3">
+                        <div class="card-image-placeholder">
+                            <img src="https://images.unsplash.com/photo-1596495578065-6e0763fa1178?q=80&w=800&auto=format&fit=crop"
+                                alt="Speech Photo" />
+                        </div>
+                        <div class="speaker-meta">
+                            <span class="speaker-name">田坂 浩之 <span
+                                    style="font-size:0.9rem;font-weight:400">先生</span></span>
+                            <span class="speaker-number">03</span>
+                        </div>
+                        <h4 class="speaker-theme">AI×反復＝数学力UP！</h4>
+                        <p class="speaker-desc">
+                            紙のプリントでは難しい「正解するまで繰り返し解かせる」反復練習を、Geminiキャンバスを用いてWebアプリ化（Googleサイトに集約）。生徒は「なんとなく分かった」で終わらず、自力で正解するまで取り組むため、質問の量が増え、理解度が大幅に改善しました。
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3 Years -->
+            <div class="speaker-category">
+                <div class="category-header reveal">
+                    <h3>勤続3年部門</h3>
+                    <div class="category-line"></div>
+                </div>
+                <div class="cards-grid">
+                    <div class="speaker-card reveal delay-1">
+                        <div class="card-image-placeholder">
+                            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=800&auto=format&fit=crop"
+                                alt="Speech Photo" />
+                        </div>
+                        <div class="speaker-meta">
+                            <span class="speaker-name">村上 嘉朗 <span
+                                    style="font-size:0.9rem;font-weight:400">先生</span></span>
+                            <span class="speaker-number">04</span>
+                        </div>
+                        <h4 class="speaker-theme">ＡＩで商品企画</h4>
+                        <p class="speaker-desc">
+                            昨年度の商品開発において生徒にAIの使用を丸投げしたが、AI不使用のチームよりも評価が下がるという「失敗」を経験。原因は「プロンプト（指示書）の立て方」や生徒自身の前提知識の不足にあると分析しました。この反省を活かし、後の公開授業ではプロンプトを周到に準備して成功を収めました。
+                        </p>
+                    </div>
+
+                    <div class="speaker-card reveal delay-2">
+                        <div class="card-image-placeholder">
+                            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=800&auto=format&fit=crop"
+                                alt="Speech Photo" />
+                        </div>
+                        <div class="speaker-meta">
+                            <span class="speaker-name">北澤 慎平 <span
+                                    style="font-size:0.9rem;font-weight:400">先生</span></span>
+                            <span class="speaker-number">05</span>
+                        </div>
+                        <h4 class="speaker-theme">AIと一緒に将来を考える</h4>
+                        <p class="speaker-desc">
+                            高校2年生の進路選択において、「自分が何をしたいのか分からない」という生徒に対しAIを活用。自己分析（過去の経験、強み、興味）やワークスタイル診断をAIに行わせ、さらに「10年後の自分へのインタビュー」といったワークを通じて、生徒自身に合う職業や志望大学を主体的に考えさせる機会を作りました。
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4-7 Years -->
+            <div class="speaker-category">
+                <div class="category-header reveal">
+                    <h3>勤続4年〜7年部門</h3>
+                    <div class="category-line"></div>
+                </div>
+                <div class="cards-grid">
+                    <div class="speaker-card reveal delay-1">
+                        <div class="card-image-placeholder">
+                            <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?q=80&w=800&auto=format&fit=crop"
+                                alt="Speech Photo" />
+                        </div>
+                        <div class="speaker-meta">
+                            <span class="speaker-name">殿井 康公 <span
+                                    style="font-size:0.9rem;font-weight:400">先生</span></span>
+                            <span class="speaker-number">06</span>
+                        </div>
+                        <h4 class="speaker-theme">ゲーム分析AIと挑む『面白い授業』</h4>
+                        <p class="speaker-desc">
+                            単に知識を与えるだけの授業から脱却し、「ゲーム分析AI」を活用。カイヨワの「遊びの4要素（競争・運・擬態・目眩）」を組み込み、生徒自身が選択・体験するゲーム型の授業を展開。マングースやネズミの駆除を選択させることで、生態系への影響を自分事として学ばせました。
+                        </p>
+                    </div>
+
+                    <div class="speaker-card reveal delay-2">
+                        <div class="card-image-placeholder">
+                            <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=800&auto=format&fit=crop"
+                                alt="Speech Photo" />
+                        </div>
+                        <div class="speaker-meta">
+                            <span class="speaker-name">太田 智美 <span
+                                    style="font-size:0.9rem;font-weight:400">先生</span></span>
+                            <span class="speaker-number">07</span>
+                        </div>
+                        <h4 class="speaker-theme">私の「推し」を最強にする！</h4>
+                        <p class="speaker-desc">
+                            生徒のプレゼン内容が「薄くてまとまりがない」という課題に対し、Geminiを導入。ロイロノートの思考ツールでアイデアを整理後、AIを壁打ち相手としてプレゼン構成を練らせました。スライドの文字数制限と「画像はAI生成」という制約を敷くことで、生徒は個別のこだわりを持って取り組むようになりました。
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 8-10 Years -->
+            <div class="speaker-category">
+                <div class="category-header reveal">
+                    <h3>勤続8年〜10年部門</h3>
+                    <div class="category-line"></div>
+                </div>
+                <div class="cards-grid">
+                    <div class="speaker-card reveal delay-1">
+                        <div class="card-image-placeholder">
+                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop"
+                                alt="Speech Photo" />
+                        </div>
+                        <div class="speaker-meta">
+                            <span class="speaker-name">安永 晴香 <span
+                                    style="font-size:0.9rem;font-weight:400">先生</span></span>
+                            <span class="speaker-number">08</span>
+                        </div>
+                        <h4 class="speaker-theme">学校保健要項のデジタル化</h4>
+                        <p class="speaker-desc">
+                            「誰が見ても学校のルールが分かる」ように、Googleドキュメントとリンクを活用して学校保健要項を整理。さらに、Geminiのディープリサーチを用いてGoogleドライブ内の情報を検索し、生徒ごとの健康記録を統合・可視化して全体像を素早く把握する仕組みを構築しました。
+                        </p>
+                    </div>
+
+                    <div class="speaker-card reveal delay-2">
+                        <div class="card-image-placeholder">
+                            <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=800&auto=format&fit=crop"
+                                alt="Speech Photo" />
+                        </div>
+                        <div class="speaker-meta">
+                            <span class="speaker-name">橋上 浩司 <span
+                                    style="font-size:0.9rem;font-weight:400">さん</span></span>
+                            <span class="speaker-number">09</span>
+                        </div>
+                        <h4 class="speaker-theme">来客管理のデジタル化提案</h4>
+                        <p class="speaker-desc">
+                            これまで紙で行っていた来客管理に伴う情報漏洩のリスクを指摘。Googleカレンダーと連携した来客予約・通知システムを提案し、教員への事前通知の自動化による業務負担軽減や、スケジュールの盗み見防止など、デジタル移行の重要性を説きました。
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 15+ Years -->
+            <div class="speaker-category">
+                <div class="category-header reveal">
+                    <h3>勤続15年以上部門</h3>
+                    <div class="category-line"></div>
+                </div>
+                <div class="cards-grid">
+                    <div class="speaker-card reveal delay-1">
+                        <div class="card-image-placeholder">
+                            <img src="https://images.unsplash.com/photo-1550439062-609e1531270e?q=80&w=800&auto=format&fit=crop"
+                                alt="Speech Photo" />
+                        </div>
+                        <div class="speaker-meta">
+                            <span class="speaker-name">山田 勝也 <span
+                                    style="font-size:0.9rem;font-weight:400">先生</span></span>
+                            <span class="speaker-number">10</span>
+                        </div>
+                        <h4 class="speaker-theme">オモシロイを言語化して実装せよ！</h4>
+                        <p class="speaker-desc">
+                            AIがいとも簡単にコードを書いてしまう状況に際し、「コードを書くこと自体の評価」に限界を感じました。そこで、遊びの4要素を使って「面白さを言語化・構成するAI」を構築。生徒はAIを相手に仮説検証と試行錯誤を繰り返し、「AIに要望を正しく伝える力」と「深い思考力」を身につける成長を見せました。
+                        </p>
+                    </div>
+
+                    <div class="speaker-card reveal delay-2">
+                        <div class="card-image-placeholder">
+                            <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=800&auto=format&fit=crop"
+                                alt="Speech Photo" />
+                        </div>
+                        <div class="speaker-meta">
+                            <span class="speaker-name">田仲 孝之 <span
+                                    style="font-size:0.9rem;font-weight:400">先生</span></span>
+                            <span class="speaker-number">11</span>
+                        </div>
+                        <h4 class="speaker-theme">進路指導力養成のために</h4>
+                        <p class="speaker-desc">
+                            若手教員でもベテラン同等の質の高い進路指導ができるようAIを活用。生徒の模試成績、推薦入試の合否ライン、各大学の入試説明会情報、Geminiのディープリサーチで収集した学部学科の情報を全てNotebookLMに集約。大学ごとの特徴や、生徒の成績に応じた合格可能性ラインを瞬時に検索できる補助ツールを構築しました。
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Grand Prix Section -->
+        <section class="grand-prix-section">
+            <div class="section-header reveal">
+                <h2 class="section-title" style="color: #b45309;">Grand Prix Nominees</h2>
+                <span class="section-subtitle">03</span>
+            </div>
+
+            <div class="grand-prix-grid">
+                <div class="gp-card reveal delay-1">
+                    <div class="gp-image-container">
+                        <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=1000&auto=format&fit=crop"
+                            alt="Dummy GP Photo" />
+                    </div>
+                    <div class="gp-content-wrapper">
+                        <div class="gp-author">
+                            <span class="gp-badge">Nominee</span>
+                            <h4>坂本 光男 <span style="font-size:1.2rem;font-weight:400">先生</span></h4>
+                        </div>
+                        <div class="gp-content">
+                            <h5>今年の活用報告書</h5>
+                            <p class="speaker-desc">
+                                用途に応じたAIツール（NotebookLM、Gemini、Claudeなど）の使い分けを実践。教科書PDFをNotebookLMに読み込ませたテキスト生成、YouTube向け解説動画の自作、数学特化AIを用いた解説を実施。学級運営では、ロイロノートで提出させた志望理由書をClaudeに添削させるなど、多様なタスクにAIを活用しました。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gp-card reveal delay-2">
+                    <div class="gp-image-container">
+                        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1000&auto=format&fit=crop"
+                            alt="Dummy GP Photo" />
+                    </div>
+                    <div class="gp-content-wrapper">
+                        <div class="gp-author">
+                            <span class="gp-badge">Nominee</span>
+                            <h4>政岡 広樹 <span style="font-size:1.2rem;font-weight:400">先生</span></h4>
+                        </div>
+                        <div class="gp-content">
+                            <h5>Eiken Knowledge Hub</h5>
+                            <p class="speaker-desc">
+                                1200名強が受験する英検の大規模運用を支えるポータルサイト『英検ハブ（Googleサイト）』を構築。高得点ライティングの共有、Geminiを用いた瞬時のライティング添削、運営教員向けの質の高いマニュアル、NotebookLMを活用した面接対策ガイドなどを集約。教員の負担軽減と生徒のスコア向上という両面で劇的な効果を上げました。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gp-card reveal delay-3">
+                    <div class="gp-image-container">
+                        <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=1000&auto=format&fit=crop"
+                            alt="Dummy GP Photo" />
+                    </div>
+                    <div class="gp-content-wrapper">
+                        <div class="gp-author">
+                            <span class="gp-badge">Nominee</span>
+                            <h4>原田 秀一 <span style="font-size:1.2rem;font-weight:400">先生</span></h4>
+                        </div>
+                        <div class="gp-content">
+                            <h5>「学びに向かう力」の涵養</h5>
+                            <p class="speaker-desc">
+                                自己調整学習に基づく『レギュレートフォーム』の活用。生徒に「見通しと振り返り」「学習方略（学びの工夫）」を記述させ主体性を育成。さらに、全員分のフォーム（PDF）をAI（Gemini等）で一括で読み込み、AIによるフィードバックをLooker
+                                Studio等で可視化する仕組みを構築。「AIに助けられつつ、最後は教員の手書きなどの身体性で感情を伝える」意義を説きました。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gp-card reveal delay-1">
+                    <div class="gp-image-container">
+                        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1000&auto=format&fit=crop"
+                            alt="Dummy GP Photo" />
+                    </div>
+                    <div class="gp-content-wrapper">
+                        <div class="gp-author">
+                            <span class="gp-badge">Nominee</span>
+                            <h4>山岡 敏明 <span style="font-size:1.2rem;font-weight:400">先生</span></h4>
+                        </div>
+                        <div class="gp-content">
+                            <h5>AI生成アプリでマイナスをゼロにする</h5>
+                            <p class="speaker-desc">
+                                AIにコードを書かせ、学校業務を効率化する自作Webアプリを多数開発（多機能な座席表アプリなど）。授業ではこの経験を活かし、生徒自身に「時計アプリ」を作成させました。「時間の流れをどう表現するか」というアイデアをAIのコーディング力で形にし、「物理的制約から思考を解放する」というテクノロジーの真の価値を示しました。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gp-card reveal delay-2">
+                    <div class="gp-image-container">
+                        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1000&auto=format&fit=crop"
+                            alt="Dummy GP Photo" />
+                    </div>
+                    <div class="gp-content-wrapper">
+                        <div class="gp-author">
+                            <span class="gp-badge">Nominee</span>
+                            <h4>若松 優一 <span style="font-size:1.2rem;font-weight:400">先生</span></h4>
+                        </div>
+                        <div class="gp-content">
+                            <h5>寺子屋的授業を目指して</h5>
+                            <p class="speaker-desc">
+                                「一斉授業から、個別最適化された寺子屋的授業へ」の挑戦。AIを使って「第一次大戦後の各国のつぶやき」を生成して国を推測させるクイズ形式の導入や、「当時の天才演説家になりきったAIとチャットさせる」試みを実施。教員が個別に生徒をサポートする時間を創出しました。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="results-podium reveal delay-3" style="margin-top: 8rem;">
+                    <h3>🏆 コンテスト最終結果</h3>
+                    <ul class="podium-list">
+                        <li>
+                            <span class="rank rank-1">1st</span>
+                            <div class="winner-info" style="flex-grow: 1;">
+                                <span class="winner-name"
+                                    style="font-size: 2.2rem; font-weight: 900; color: #D4AF37;">原田 秀一 <span
+                                        style="font-size: 0.6em; font-weight: 500;">先生</span></span>
+                                <span class="winner-theme" style="font-size: 1.3rem;">「学びに向かう力」の涵養</span>
+                            </div>
+                            <img src="images/winner.jpg" alt="原田先生" class="winner-photo"
+                                style="width: 200px; height: 200px; border-radius: 50%; object-fit: cover; border: 5px solid #D4AF37; box-shadow: 0 10px 20px rgba(0,0,0,0.5); aspect-ratio: 1/1; margin-left: 1rem;">
+                        </li>
+                        <li>
+                            <span class="rank rank-2">2nd</span>
+                            <div class="winner-info">
+                                <span class="winner-name">政岡 広樹 <span
+                                        style="font-size: 0.7em; font-weight: 500;">先生</span></span>
+                                <span class="winner-theme">Eiken Knowledge Hub</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="rank rank-3">3rd</span>
+                            <div class="winner-info">
+                                <span class="winner-name">山岡 敏明 <span
+                                        style="font-size: 0.7em; font-weight: 500;">先生</span></span>
+                                <span class="winner-theme">AI生成アプリでマイナスをゼロにする</span>
+                            </div>
+                        </li>
+                    </ul>
+                    <p style="margin-top: 3rem; color: #E2E8F0; font-size: 0.95rem; text-align: center;">
+                        ※部門別・グランプリ共に、参加者全員の「挑戦」が高く称えられました。
+                    </p>
+                </div>
+        </section>
+
+        <!-- Final Reviews -->
+        <section class="review-section">
+            <div class="section-header reveal">
+                <h2 class="section-title">Reviews</h2>
+                <span class="section-subtitle">04</span>
+            </div>
+
+            <div class="review-card reveal delay-1">
+                <h3 class="review-author">澁谷さん ＆ 徳千代先生 <span
+                        style="font-size:0.9rem;font-weight:400;color:var(--text-secondary)">講評</span></h3>
+                <p class="review-text">
+                    多くの学校が「使うか・使わないか」で悩んでいる中、これほど前向きに、葛藤や失敗も含めてICT・AIを活用している大商学園の姿勢は素晴らしい。本日の実践例は全国の先生方の希望となる、と絶賛しました。
+                </p>
+            </div>
+
+            <div class="review-card reveal delay-2">
+                <h3 class="review-author">校長先生 <span
+                        style="font-size:0.9rem;font-weight:400;color:var(--text-secondary)">講評</span></h3>
+                <p class="review-text">
+                    ICTへの苦手意識を持つ先生もいる中、若手教員から事務方まで多様な発表があり刺激的でした。挑戦しなければ何も得られない。先駆者の実践を真似ることで、少しずつハードルを越えていってほしいと語りました。
+                </p>
+            </div>
+        </section>
+
+        <footer
+            style="padding: 4rem 0; text-align: center; color: var(--text-tertiary); font-family: var(--font-display); font-size: 0.9rem; border-top: 1px solid rgba(255,255,255,0.05);">
+            <p>Daisho Gakuen ICT & Generative AI Contest 2026</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
