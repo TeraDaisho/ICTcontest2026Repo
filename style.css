@@ -384,6 +384,52 @@ section {
     font-size: 1rem;
     font-weight: 600;
     flex-grow: 1;
+    margin-bottom: 1.5rem;
+}
+
+.speaker-links {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: auto;
+}
+
+.doc-link {
+    display: inline-block;
+    padding: 0.6rem 1.2rem;
+    background: var(--color-blue);
+    color: white;
+    text-decoration: none;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 0.9rem;
+    border: 3px solid #111;
+    box-shadow: 4px 4px 0px #111;
+    transition: var(--transition-smooth);
+    text-transform: uppercase;
+    transform: skew(-5deg);
+}
+
+.doc-link:hover {
+    transform: translate(-2px, -2px) skew(-5deg);
+    box-shadow: 6px 6px 0px #111;
+    background: var(--color-cyan);
+    color: #111;
+}
+
+.speaker-card:nth-child(4n+1) .doc-link { background: var(--color-red); }
+.speaker-card:nth-child(4n+2) .doc-link { background: var(--color-blue); }
+.speaker-card:nth-child(4n+3) .doc-link { background: var(--color-purple); }
+.speaker-card:nth-child(4n+4) .doc-link { background: var(--color-green); }
+
+.gp-content .doc-link {
+    background: var(--color-yellow);
+    color: #111;
+    border-color: #111;
+}
+
+.gp-content .doc-link:hover {
+    background: white;
 }
 
 /* Grand Prix Special Layout - Prestigious Navy */
